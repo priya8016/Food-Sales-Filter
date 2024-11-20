@@ -22,6 +22,7 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce', format='%d-%b')
 # Define the relative path to the 'custom_folder'
 template_folder_path = os.path.join(current_dir, "custom_folder")
 
+
 # Initialize Flask app with the relative path for templates
 app = Flask(__name__, template_folder=template_folder_path)
 
@@ -38,8 +39,11 @@ def get_public_ip():
 @app.route('/')
 def home():
     #return "Flask server is running!"
-    return render_template('index.html')
-    
+    #return render_template('index.html')
+     if os.path.exists(os.path.join(template_folder_path, 'index.html')):
+        return render_template('index.html')
+    else:
+        return f"Error: index.html not found in {template_folder_path}"
 # Endpoint to get unique values for City and Category
 @app.route('/get_initial_data', methods=['GET'])
 def get_initial_data():
