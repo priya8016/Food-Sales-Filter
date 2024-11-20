@@ -42,7 +42,7 @@ def home():
     #return render_template('index.html')
      if os.path.exists(os.path.join(template_folder_path, 'index.html')):
         return render_template('index.html')
-    else:
+     else:
         return f"Error: index.html not found in {template_folder_path}"
 # Endpoint to get unique values for City and Category
 @app.route('/get_initial_data', methods=['GET'])
