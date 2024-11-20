@@ -13,7 +13,6 @@ PyQt5==5.15.10
 pyls-spyder==0.4.0
 pyasn1-modules==0.2.8
 protobuf==4.25.3
-mkl-service==2.4.0
 jsonpointer==2.1
 Flask==3.1.0
 Flask-Cors==5.0.0
