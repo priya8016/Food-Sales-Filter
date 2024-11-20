@@ -5,7 +5,11 @@ import os
 
 
 # Load the Excel file
-excel_file_path = 'C:/Users/madug/OneDrive/Desktop/Advance Database/Main project/sampledatafoodsales_analysis.xlsx'
+# Get the directory of the current script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Define the relative path to the Excel file
+excel_file_path = os.path.join(current_dir, "sampledatafoodsales_analysis.xlsx")
 
 df = pd.read_excel(excel_file_path, sheet_name='FoodSales')
 
@@ -13,7 +17,14 @@ df = pd.read_excel(excel_file_path, sheet_name='FoodSales')
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce', format='%d-%b')
 
 # Initialize Flask app
-app = Flask(__name__, template_folder=r'C:\Users\madug\OneDrive\Desktop\Advance Database\Main project\custom_folder')
+#app = Flask(__name__, template_folder=r'C:\Users\madug\OneDrive\Desktop\Advance Database\Main project\custom_folder')
+
+# Define the relative path to the 'custom_folder'
+template_folder_path = os.path.join(current_dir, "custom_folder")
+
+# Initialize Flask app with the relative path for templates
+app = Flask(__name__, template_folder=template_folder_path)
+
 CORS(app)  # Allow cross-origin requests
 
 def get_public_ip():
