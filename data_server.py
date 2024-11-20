@@ -38,11 +38,8 @@ def get_public_ip():
 @app.route('/')
 def home():
     #return "Flask server is running!"
-   
     return render_template('index.html')
-    else:
-    return f"Error: index.html not found in {template_folder_path}"
-
+    
 # Endpoint to get unique values for City and Category
 @app.route('/get_initial_data', methods=['GET'])
 def get_initial_data():
