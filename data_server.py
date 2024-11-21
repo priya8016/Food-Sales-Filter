@@ -11,7 +11,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Define the relative path to the Excel file
 excel_file_path = os.path.join(current_dir, "sampledatafoodsales_analysis.xlsx")
 
-df = pd.read_excel(excel_file_path, sheet_name='FoodSales')
+df = pd.read_excel(excel_file_path, sheet_name ='FoodSales')
 
 # Ensure 'Date' column is parsed as datetime with flexible formats
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce', format='%d-%b')
