@@ -26,7 +26,9 @@ template_folder_path = os.path.join(current_dir, "custom_folder")
 # Initialize Flask app with the relative path for templates
 app = Flask(__name__, template_folder=template_folder_path)
 
-CORS(app)  # Allow cross-origin requests
+#CORS(app)  # Allow cross-origin requests
+
+CORS(app, origins=["https://priya8016.github.io/Food-Sales-Filter/"]) 
 
 def get_public_ip():
     try:
@@ -44,6 +46,8 @@ def home():
         return render_template('index.html')
      else:
         return f"Error: index.html not found in {template_folder_path}"
+
+
 # Endpoint to get unique values for City and Category
 @app.route('/get_initial_data', methods=['GET'])
 def get_initial_data():
